@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Lorena Sánchez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .products-page {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .products-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .products-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            animation: fadeInUp 0.8s ease-out;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card-image {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-card-image {
+            transform: scale(1.05);
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .product-benefits {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .product-benefits li {
+            list-style: none;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-benefits li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .product-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            font-size: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            width: 100%;
+            text-align: center;
+        }
+
+        .product-button:hover {
+            background-color: var(--accent-dark);
+            transform: scale(1.02);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .back-button:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .products-page {
+                padding-top: 100px;
+            }
+
+            .products-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .product-card-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                LORENA<span class="accent">SÁNCHEZ</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="products.html" class="nav-link">Productos</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Products Page -->
+    <div class="products-page">
+        <div class="container">
+            <a href="index.html" class="back-button">← Volver</a>
+
+            <div class="products-header">
+                <h1>Colección Exclusiva de Productos</h1>
+                <p>Descubre nuestra cuidada selección de productos premium, diseñados para revelar tu belleza natural con resultados profesionales.</p>
+            </div>
+
+            <div class="products-container">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Serums</p>
+                        <h3>Sérum Renovador Premium</h3>
+                        <p class="product-description">Fórmula avanzada con ácido hialurónico y vitamina C. Revitaliza y rejuvenece la piel en profundidad.</p>
+                        <p class="product-price">$89</p>
+                        <ul class="product-benefits">
+                            <li>Hidratación profunda</li>
+                            <li>Antienvejecimiento</li>
+                            <li>Brillo natural</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Moisturizers</p>
+                        <h3>Crema Hidratante Lujo</h3>
+                        <p class="product-description">Textura sedosa con extractos de oro coloidal. Proporciona hidratación 24 horas.</p>
+                        <p class="product-price">$75</p>
+                        <ul class="product-benefits">
+                            <li>Hidratación 24h</li>
+                            <li>Textura sedosa</li>
+                            <li>Aroma exclusivo</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Cleansers</p>
+                        <h3>Limpiador Purificante</h3>
+                        <p class="product-description">Gel limpiador suave que elimina impurezas sin resecar. Apto para todo tipo de piel.</p>
+                        <p class="product-price">$65</p>
+                        <ul class="product-benefits">
+                            <li>Limpieza profunda</li>
+                            <li>Suave</li>
+                            <li>Apto para todo tipo</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Masks</p>
+                        <h3>Mascarilla Lujo Intensiva</h3>
+                        <p class="product-description">Mascarilla de tratamiento con ingredientes premium. Resultados visibles en 15 minutos.</p>
+                        <p class="product-price">$95</p>
+                        <ul class="product-benefits">
+                            <li>Tratamiento intensivo</li>
+                            <li>Resultados rápidos</li>
+                            <li>Efecto lifting</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Eye Care</p>
+                        <h3>Contorno de Ojos Élite</h3>
+                        <p class="product-description">Crema especializada para la zona delicada de los ojos. Reduce ojeras y líneas de expresión.</p>
+                        <p class="product-price">$85</p>
+                        <ul class="product-benefits">
+                            <li>Reduce ojeras</li>
+                            <li>Antiarrugas</li>
+                            <li>Suavizante</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-card-image" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663644597073/XEoBL8eBAU477dbQzPhZro/cosmetic-products-luxury-QscvsioNSMB5poZMwLNYTp.webp')"></div>
+                    <div class="product-card-content">
+                        <p class="product-category">Sun Care</p>
+                        <h3>Protector Solar Premium</h3>
+                        <p class="product-description">SPF 50+ con protección UVA/UVB. Textura ligera que no deja residuos blancos.</p>
+                        <p class="product-price">$72</p>
+                        <ul class="product-benefits">
+                            <li>SPF 50+</li>
+                            <li>Textura ligera</li>
+                            <li>Protección total</li>
+                        </ul>
+                        <button class="product-button">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2024 Lorena Sánchez. Todos los derechos reservados.</p>
+            <p class="footer-subtext">Diseño editorial de lujo | Belleza profesional & distribución exclusiva</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
